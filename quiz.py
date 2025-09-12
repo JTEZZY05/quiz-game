@@ -1,22 +1,10 @@
-import matplotlib.pyplot as plt
-import numpy as np
-
-A = np.array([[2, 1],
-              [1, 3]])
-
-# Original unit vectors
-vectors = np.array([[1, 0], [0, 1]]).T  # columns are vectors
-
-# Apply transformation
-transformed = A @ vectors
-
-origin = np.zeros((2,2))  # origin points for arrows
-
-plt.quiver(*origin, vectors[0], vectors[1], color='blue', scale=1, scale_units='xy', angles='xy', label='Original')
-plt.quiver(*origin, transformed[0], transformed[1], color='red', scale=1, scale_units='xy', angles='xy', label='Transformed')
-
-plt.xlim(-1,5)
-plt.ylim(-1,5)
-plt.grid()
-plt.legend()
-plt.show()
+questions_answers = {"What is 4 + 4?":8,
+                     "What is 2 x 2?":4,
+                     "What is 4 \u00F7 2?":2,
+                     "What is 10 - 5?":5,
+                     "What is the capital of France?":"Paris",
+                     "What is the color of grass?":"green",
+                     "Is water wet?":"yes",
+                     "Is bread a food?":"yes",
+                     "Who was the first man to throw a pie?":"Harold Lloyd",
+                     "Who is the coolest programmer(Hint:It's JTEZZY05:)":"JTEZZY05"}
