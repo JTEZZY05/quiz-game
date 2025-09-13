@@ -20,11 +20,37 @@ def quiz_run(questions_answers):
 
     current_question = 1
     #For loop that loops through the dictionary 
-    for questions, answers in questions_answers():
+    for questions, answers in questions_answers.items():
         print(f"Question {current_question}/{total_questions}")
         user_input = input("Question: "+questions)
         #This checks if the current answer is an integer, in which case it converts users string input to an integer
         if isinstance(answers,int):
             if user_input.isdigit():
                 user_input = int(user_input)
+        if user_input == answers and total_questions < 9: # Loops up untill 8, this is because 9 and 10 have special responses
+            print("✨WOWZERS YOU ARE CORRECT✨")
+            score+=1
+        elif user_input != answers:
+            print("❌YOU ARE WRONG❌")
+            wrong_questions.append(current_question) #Updates the wrong question tracker for each question missed
+        elif user_input == answers and total_questions == 9:
+            print("✨🔥🚀HOW DO YOU EVEN KNOW THAT?✨🔥🚀") #I am gonna be impressed if someone just knows this
+            score+=1
+        elif user_input == answers and total_questions ==10:
+            print("😎💯AND YOU'RE GOSH DARN RIGHT😎💯") #Well then, that settles things
+            score+=1
+        current_question+=1
+        #Final summary
+        print("You finished the quiz 🎉")
+        print(f"Your final score is {score}/{total_questions}")
         
+        if score == total_questions:
+            print("🎉✨PERFECT SCORE🎉✨")
+        elif score == 0:
+            print("0_0 HOWWWWWWWWWWWWWWWWWWWW")
+            print("You got.....EVERYTHING WRONG OMLLLL")
+        else:
+            print("You missed these questions:",wrong_questions)
+quiz_run(questions_answers)
+
+
